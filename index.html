@@ -24,6 +24,127 @@ class: center, middle
 
 # Introduction to Solid
 
+**So**cial **Li**nked **D**ata
+
+---
+
+## Solid is...
+
+1. A continuation of the vision of the Read-Write Web
+2. A toolkit for Linked Data enabled social apps
+3. A testbed for decentralized research
+
+---
+
+## The Read-Write Web
+
+A standardized way of Reading and Writing data.
+
+The first ever web browser (Tim's WorldWideWeb) could read and ***edit*** pages.
+
+As web grew, it became *read only* for most users.
+
+---
+
+## The "Read" part of Read-Write Web
+
+![Mission Accomplished](https://cdn.meme.am/instances/500x/34477803.jpg)
+
+---
+
+## The "Read" part of Read-Write Web
+
+Well, sort of...
+
+![Incompatible Auth](incompat_auth.jpg)
+
+Authentication/authorization compatibility still an issue. (Recurring theme.)
+
+---
+
+## The "Write" part of Read-Write Web
+
+It's 2016. What is the state of the art as far as:
+
+*Writing* data on the web? (Generic, inter-operable)
+
+(Out of scope: non-web methods such as SFTP, SSH, SMB, etc)
+
+---
+
+### HTTP POST (Form submit / File upload)
+
+![Form submit](form_submit.png)
+
+* Not very feature rich
+* One-off / hand rolled implementations on the server slide
+
+---
+
+### WebDAV (RFC 4918)
+
+![WebDAV](webdav.gif)
+
+**Web D**istributed **A**uthoring and **V**ersioning
+
+* Started around 1999 (finalized in 2007)
+* File transfer, collaboration (a more "webby" FTP)
+* Mount remote WebDAV file systems in most OSs
+
+---
+
+### WebDAV
+
+HTTP verbs (GET / POST/ PUT / DELETE) plus extensions:
+- Collections (create / list directories)
+- Concurrency control (lock/unlock)
+- Copy / Move
+- Properties per resource, in XML. (PropFind/PropPatch)
+- Auth: Username+Password, group-based ACLs
+
+Useful for file transfer. **Not very decentralized.**
+
+---
+
+### AtomPub and co
+
+**Atom:** XML-based format for *web feeds* (successor to RSS).
+
+**AtomPub:** A way to read/write/manage Atom feeds.
+- Complex on the server-side. Not easy on client side.
+
+**OData:** Open Data Protocol. Initially by Microsoft, now by OASIS.
+- Extension of AtomPub
+- Very complex on server side (especially data model)
+- *General-purpose querying syntax*
+- See also: competing GData (Google Data) protocol
+
+---
+
+### REST (Representational State Transfer)
+
+* Millions of (slightly incompatible) APIs
+* Familiar to most developers
+* Great framework support (Ruby on Rails, etc)
+* No standardized auth (OAuth2 and OpenID Connect as state of the art)
+* No standard data model definition. Though see:
+  [JSON Schema](http://json-schema.org/),
+  [HAL](http://stateless.co/hal_specification.html),
+  [JSON API](http://jsonapi.org/)
+* No standard querying syntax (though see Facebook's GraphQL)
+
+---
+
+## Read-Write Web: What have we learned?
+
+1. (decentralized) Auth* is hard
+2. (general-purpose) Querying is hard
+3. (general-purpose) Data definition is hard
+
+Easy to do a one-off REST service. Interop - nearly impossible.
+
+**We can do better.**
+
 ---
 
 class: center, middle
