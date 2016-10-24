@@ -68,6 +68,17 @@ Authentication/authorization compatibility still an issue. (Recurring theme.)
 
 ---
 
+## The "Read" part of Read-Write Web
+
+Ok, so... we've only solved `HTTP GET` (on public resources). And even then:
+
+* The data is human-readable, but often not machine-readable
+  (see [Intro Linked Data](https://github.com/solid/understanding-linked-data))
+* No guarantee that you get what you requested <br/>
+  (ask Nicola about authenticated content-addressable data structures...)
+
+---
+
 ## The "Write" part of Read-Write Web
 
 It's 2016. What is the state of the art as far as:
@@ -137,19 +148,40 @@ Complex. **Not decentralized.**
 * No standardized auth (OAuth2 and OpenID Connect as state of the art)
 * No standard data model definition. Though see:
   [JSON Schema](http://json-schema.org/),
-  [HAL](http://stateless.co/hal_specification.html),
-  [JSON API](http://jsonapi.org/)
+  [JSON API](http://jsonapi.org/),
+  [HAL](http://stateless.co/hal_specification.html)
 * No standard querying syntax (though see Facebook's GraphQL)
+
+---
+
+### Sidetrack: What is interoperability?
+
+For services to be inter-operable, they will need:
+
+* Auth interop: Understand each other's logins and access controls
+* API interop: Understand *how* to get the data (which API endpoints/HTTP verbs)
+* Schema interop: Use interoperable data formats and semantics.<br />
+  (Either use the *same schemas*, or have *automatic translation*.)
+
+---
+
+### Problems (with current REST landscape)
+
+* Diferent, *special-purpose* APIs everywhere
+* No interoperability
+* Users have zero control over their data
+* Identity tightly coupled with each app / service
 
 ---
 
 ## Read-Write Web: What have we learned?
 
-1. (decentralized) Auth* is hard
-2. (general-purpose) Querying is hard
-3. (general-purpose) Data definition is hard
+1. (decentralized) Authentication/authorization is hard
+2. Generic query language for REST (raw SQL doesn't cut it..) - hard.
+   *Federated* querying - even harder.
+3. Interoperability on the data/schema level is hard.
 
-Easy to do a one-off REST service. Interop - nearly impossible.
+Easy to do a one-off REST service. Interop - currently nearly impossible.
 
 **We can do better.**
 
@@ -161,14 +193,24 @@ REST API + Linked Data.
 
 * Simple persistence for your linked data (datasets, images, etc)
 * "Webization" of the File System: Containers (folders) + Resources (files)
-* HTTP verbs: GET / POST / PUT / DELETE / **PATCH**
-* Decentralized Identity, Authentication and Access Control
+* *Generic* data access API: GET / POST / PUT / DELETE / **PATCH**
+* Cross-domain Authentication and Access Control
+* Self-managed decentralized Identity
 
 ---
 
 ## Solid: Decentralized Social App Toolkit
 
 ![Solid Overview](solid_overview.png)
+
+---
+
+### What is different?
+
+* Apps no longer "run" on dedicated servers
+* Users can re-use their identities/logins
+* Generic REST API for managing data
+* No application logic on the server! (Choice of apps)
 
 ---
 
