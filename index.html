@@ -72,7 +72,7 @@ Authentication/authorization compatibility still an issue. (Recurring theme.)
 
 Ok, so... we've only solved `HTTP GET` (on public resources). And even then:
 
-* The data is human-readable, but often not machine-readable
+* The data is human-readable, but often not machine-readable <br/>
   (see [Intro Linked Data](https://github.com/solid/understanding-linked-data))
 * No guarantee that you get what you requested <br/>
   (ask Nicola about authenticated content-addressable data structures...)
@@ -119,7 +119,10 @@ HTTP verbs (GET / POST/ PUT / DELETE) plus extensions:
 - Properties per resource, in XML. (PropFind/PropPatch)
 - Auth: Username+Password, group-based ACLs
 
-Useful for file transfer. **Not decentralized.**
+Useful for file transfer.
+
+Could be decentralized, but suffers from centralized
+authentication and access control subsystems. (Room for improvement!)
 
 ---
 
@@ -136,7 +139,7 @@ Useful for file transfer. **Not decentralized.**
 - *General-purpose querying syntax*
 - See also: competing GData (Google Data) protocol
 
-Complex. **Not decentralized.**
+Complex. Not decentralized (again, due to auth/acl).
 
 ---
 
@@ -144,7 +147,7 @@ Complex. **Not decentralized.**
 
 * Millions of (slightly incompatible) APIs
 * Familiar to most developers
-* Great framework support (Ruby on Rails, etc)
+* Great framework support (Ruby on Rails, Dropwizard, Django, Express ...)
 * No standardized auth (OAuth2 and OpenID Connect as state of the art)
 * No standard data model definition. Though see:
   [JSON Schema](http://json-schema.org/),
