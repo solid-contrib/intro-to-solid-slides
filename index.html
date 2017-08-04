@@ -81,7 +81,7 @@ Ok, so... we've only solved `HTTP GET` (on public resources). And even then:
 
 ## The "Write" part of Read-Write Web
 
-It's 2016. What is the state of the art as far as:
+It's 2017. What is the state of the art as far as:
 
 *Writing* data on the web? (Generic, inter-operable)
 
@@ -172,7 +172,7 @@ For services to be inter-operable, they will need:
 
 * Diferent, *special-purpose* APIs everywhere
 * No interoperability
-* Users have zero control over their data
+* Users have very little control over their data
 * Identity tightly coupled with each app / service
 
 ---
@@ -197,8 +197,7 @@ REST API + Linked Data.
 * Simple persistence for your linked data (datasets, images, etc)
 * "Webization" of the File System: Containers (folders) + Resources (files)
 * *Generic* data access API: GET / POST / PUT / DELETE / **PATCH**
-* Cross-domain Authentication and Access Control
-* Self-managed decentralized Identity
+* Global (cross-domain) Authentication and Access Control
 
 ---
 
@@ -219,24 +218,128 @@ REST API + Linked Data.
 
 ## Solid Features
 
-##### Portable, decentralized identity
-WebID URLs: globally unique user names. WebID Profiles: portable user profiles.
+#### Portable, decentralized identity
 
-##### Cross-domain Authentication and Access Control
-Standards such as WebID-TLS, OpenID Connect, and Web Access Control allow fine
-grained permissions and data sharing without central authority.
+**WebID URLs**: globally unique user names.
+
+**WebID Profiles**: portable user profiles.
 
 ---
 
 ## Solid Features
 
-##### Generic, inter-operable data representation
+#### Decentralized Authentication
+
+Current authentication method: WebID-TLS
+
+Transitioning to: WebID-OIDC
+
+Based on WebID / OAuth2 / OpenID-Connect / PoP (Proof of Possession)
+
+---
+
+## Solid Features
+
+#### Decentralized Access Control
+
+Web Access Control allow per-resource
+permissions and data sharing without central authority
+
+See: https://github.com/solid/web-access-control-spec
+
+---
+
+## Solid Features
+
+#### Generic, inter-operable data representation
 Flat graph-based data model (Linked Data). Standard, commonly used schemas /
 ontologies.
 
-##### Social Protocol / Web App Conventions
-Solid Specs allow devs to perform social media operations such as friends lists,
-subscribing, receiving notifications.
+---
+
+## Solid Features
+
+#### Federated Querying (*in progress*)
+
+See: Daniel's Twinql project (https://github.com/dan-f/twinql)
+
+See: Ruben's Linked Data Fragments powered SPARQL endpoints
+
+---
+
+## Solid Features
+
+#### Social Protocol / Web App Conventions (*in progress*)
+Solid Specs will allow devs to perform social media operations such as friends
+lists, subscribing, receiving notifications.
+
+---
+class: center, middle
+
+## Empowering Users
+
+---
+
+### Current User Pain Points
+
+1. **Account Proliferation** (must register with every site / web app)
+2. **Data Lock-In** (data lives with app provider)
+
+    - No control of how your data gets used by provider
+    - Data Loss (when app provider gets acquired / closes shop)
+    - Social Graph lock-in (re-build your friends list for each provider)
+3. **No Interop Between Apps** (API mashups if you're lucky)
+
+---
+
+### Solid - Empowering Users
+
+1. **Reusable Accounts/WebIDs** (register with your pod, log in everywhere)
+2. **Data Stays with Users**
+
+    - Similar to desktop apps - the data is yours, your choice of apps
+    - User controls who (people, companies, apps) accesses data and how
+    - Enables data backup / export
+    - Social Graph / Contacts stay with user (in reusable vCard format)
+3. **Easier Interop - Apps Can Access Each Other's Data**
+
+---
+
+class: center, middle
+
+## Empowering Developers
+
+---
+
+### Current Developer Pain Points
+
+Developing a web app? You'll need to:
+
+1. Provide authentication and user accounts (and account recovery, etc)
+2. Provide data storage (external privacy regulations, risk of mass leak)
+3. Design/implement/test *yet another* REST API and data model
+4. Design/implement/test an access control and authorization model
+5. Interop with other app providers' APIs is difficult (and restricted/metered)
+
+---
+
+### Solid - Empowering Developers
+
+Using Solid architecture:
+
+* Users *bring their own* user accounts and storage (just by logging in)
+* Data is stored with the user - no expense (or regulatory pressure) for you
+* Universal, standardized read-write REST API already provided by the users' pods
+* All data protected by a standardized Access Control / authorization model
+* Interop much easier - your app can access other apps' data (with user's permission)
+
+You just provide the app logic
+
+---
+
+class: center, middle
+
+## Research Opportunities
 
 ---
 
@@ -275,7 +378,7 @@ Research Opportunities:
 
 ## Solid: Next Steps
 
-1. Come talk to the Solid team (room G522)
+1. Come talk to the Solid team
 2. Drop in the Solid chat room on Gitter: https://gitter.im/solid/chat
 3. Get your own WebID and Solid account at http://databox.me/
 4. Read the specs: https://github.com/solid/solid-spec
